@@ -12,41 +12,61 @@
         <link rel="stylesheet" href="main.css">
     </head>
     <body>
-        <div id="wrap" class="text-center">
+        <div class="text-center">
             <h1>EDH App</h1>
-        </div>
-
-        <div class="container-fluid text-center">
-            <ul>
-                Liked Cards
-                <li ng-repeat="likedCard in likedCards">
-                    {{ likedCard.title }}
-                </li>
-            </ul>
-            <ul>
-                Disliked Cards
-                <li ng-repeat="dislikedCard in dislikedCards">
-                    {{ dislikedCard.title }}
-                </li>
-            </ul>
+            <form>
+                <label>CMC: <input type="number" ng-model="input.cmc"/></label><br />
+                <!-- <ul>
+                    <li ng-repeat="colorIdentity in colorIdentities track by $index">
+                        <label>
+                            <input
+                                type="checkbox"
+                                name="colorIdentities[]"
+                                value="{{colorIdentity}}"
+                                ng-checked="selection.indexOf(colorIdentity) > -1"
+                                ng-click="toggleSelection(colorIdentity)"/> {{ ::colorIdentity}}
+                        </label>
+                    </li>
+                </ul> -->
+                <button class="btn btn-primary"
+                    ng-click="search(input)">Search</button>
+            </form>
             
-            <ng-swippy collection='itemsCollection' 
-                width='700px' 
-                height='700px' 
-                item-click='clickFunction' 
+            <ng-swippy ng-if="hasSearchResults"
+                collection='itemsCollection' 
+                width='{{size.width}}px' 
+                height='{{size.height}}px' 
+                item-click='cardClicked' 
                 data='showInfo' 
                 collection-empty='swipeend' 
                 swipe-left='swipeLeft' 
                 swipe-right='swipeRight'
-                cards-number='2' 
+                cards-number='itemsCollection.length' 
                 label-ok='Cool'
                 label-negative='Bad'>
             </ng-swippy>
+
+            <div ng-show="hasSearchResults">
+                <label for="likedCards">
+                    Liked Cards
+                </label>
+                <ul id="likedCards">
+                    <li ng-repeat="likedCard in likedCards">{{ likedCard.title }}</li>
+                </ul>
+
+                <label for="dislikedCards">
+                    Disliked Cards
+                </label>
+                <ul id="dislikedCards">
+                    <li ng-repeat="dislikedCard in dislikedCards">{{ dislikedCard.title }}</li>
+                </ul>
+            </div>
         </div>
 
-        <script src="../node_modules/angular/angular.min.js"></script>
+        <script src="../node_modules/angular/angular.js"></script>
         <script src="../node_modules/angular-touch/angular-touch.min.js"></script>
         <script type="text/javascript" src="../node_modules/ng-swippy/ng-swippy.js"></script>
         <script type="text/javascript" src="app.js"></script>
+        <script type="text/javascript" src="cardService.js"></script>
     </body>
 </html>
