@@ -1,0 +1,17 @@
+{
+  "name": "edh-angular",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Peter Bernhardt",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "angular": "^1.6.6",
+    "angular-touch": "^1.6.6",
+    "mtgsdk": "^0.3.0",
+    "ng-swippy": "^0.1.2"
+  }
+}

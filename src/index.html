@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" ng-app="edh" ng-controller="MainController">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title ng-bind="pageTitle"></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="../node_modules/ng-swippy/ngswippy.css">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <div id="wrap" class="text-center">
+            <h1>EDH App</h1>
+        </div>
+
+        <div class="container-fluid">
+            <ng-swippy collection='itemsCollection' 
+                width='700px' 
+                height='700px' 
+                item-click='clickFunction' 
+                data='showInfo' 
+                collection-empty='swipeend' 
+                swipe-left='swipeLeft' 
+                swipe-right='swipeRight'
+                cards-number='2' 
+                label-ok='Cool'
+                label-negative='Bad'>
+            </ng-swippy>
+        </div>
+
+        <script src="../node_modules/angular/angular.min.js"></script>
+        <script src="../node_modules/angular-touch/angular-touch.min.js"></script>
+        <script type="text/javascript" src="../node_modules/ng-swippy/ng-swippy.js"></script>
+        <script type="text/javascript" src="app.js"></script>
+    </body>
+</html>
