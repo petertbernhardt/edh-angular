@@ -29,6 +29,9 @@
                 label-ok='Cool'
                 label-negative='Bad'>
             </ng-swippy>
+
+            <pre>Liked cards {{ likedCards | json }}</pre>
+            <pre>Disliked cards {{ dislikedCards | json }}</pre>
         </div>
 
         <script src="../node_modules/angular/angular.min.js"></script>

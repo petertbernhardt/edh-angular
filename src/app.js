@@ -18,4 +18,20 @@ app.controller("MainController", function($scope) {
 			'subtitle': 'Shaky leg commander'
 		}
 	];
+	$scope.likedCards = [];
+	$scope.dislikedCards = [];
+
+	$scope.swipeRight = function(card) {
+		console.log(card);
+		$scope.likedCards.push(card);
+	};
+
+	$scope.swipeLeft = function(card) {
+		console.log(card);
+		$scope.dislikedCards.push(card);
+	};
+
+	$scope.swipeend = function() {
+		console.log('empty!');
+	}
 });
