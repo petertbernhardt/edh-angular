@@ -33,5 +33,5 @@ app.controller("MainController", function($scope) {
 
 	$scope.swipeend = function() {
 		console.log('empty!');
-	}
+	};
 });
