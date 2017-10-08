@@ -17,6 +17,19 @@
         </div>
 
         <div class="container-fluid text-center">
+            <ul>
+                Liked Cards
+                <li ng-repeat="likedCard in likedCards">
+                    {{ likedCard.title }}
+                </li>
+            </ul>
+            <ul>
+                Disliked Cards
+                <li ng-repeat="dislikedCard in dislikedCards">
+                    {{ dislikedCard.title }}
+                </li>
+            </ul>
+            
             <ng-swippy collection='itemsCollection' 
                 width='700px' 
                 height='700px' 
@@ -29,9 +42,6 @@
                 label-ok='Cool'
                 label-negative='Bad'>
             </ng-swippy>
-
-            <pre>Liked cards {{ likedCards | json }}</pre>
-            <pre>Disliked cards {{ dislikedCards | json }}</pre>
         </div>
 
         <script src="../node_modules/angular/angular.min.js"></script>
